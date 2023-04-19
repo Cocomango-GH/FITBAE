@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
 // // Ensure that the Category model is loaded in Mongoose
-// require('./category');
+require('./goals');
 
 // We want to re-use the goalSchema
-const goalSchema = require('../goalSchema');
+const goalsSchema = require('../goalsSchema');
 
-module.exports = mongoose.model('Goal', goalSchema);
+module.exports = mongoose.model('Goal', goalsSchema);
+

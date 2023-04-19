@@ -41,7 +41,7 @@ export default function fitnessGoalPage() {
   }
 
   useEffect(() => {
-    localStorage.setItem('goals', JSON.stringify(goalsList));
+    localStorage.setItem('goal', JSON.stringify(goalsList));
   }, [goalsList]);
 
   return (

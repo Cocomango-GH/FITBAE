@@ -8,15 +8,22 @@ function Dashboard() {
 
   useEffect(() => {
     fetch('/api/goals')
-      .then(response => response.json())
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Network response was not ok');
+        }
+      })
       .then(data => {
         setGoals(data);
-        setNumCompleted(data.filter(goal => goal.completed).length);
-        setNumRemaining(data.filter(goal => !goal.completed).length);
-        setAvgCompletion(Math.round(data.reduce((total, goal) => total + goal.completionPercentage, 0) / data.length));
+        setNumCompleted(data.filter(goal => goals.completed).length);
+        setNumRemaining(data.filter(goal => !goals.completed).length);
+        setAvgCompletion(Math.round(data.reduce((total, goals) => total + goals.completionPercentage, 0) / data.length));
       })
-      .catch(error => console.log(error));
+      .catch(error => console.error('Error fetching goals:', error));
   }, []);
+  
 
   return (
     <div>
@@ -26,10 +33,10 @@ function Dashboard() {
       <p>Average completion percentage: {avgCompletion}%</p>
       <h2>Upcoming Goals</h2>
       <ul>
-        {goals.filter(goal => !goal.completed).map(goal => (
-          <li key={goal._id}>
-            <p>{goal.title}</p>
-            <p>{goal.dueDate}</p>
+        {goals.filter(goals => !goals.completed).map(goal => (
+          <li key={goals._id}>
+            <p>{goals.title}</p>
+            <p>{goals.dueDate}</p>
           </li>
         ))}
       </ul>

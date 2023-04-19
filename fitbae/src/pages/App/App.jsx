@@ -6,7 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import NavBar from '../../Components/NavBar/NavBar';
 import { getUser } from '../../utilities/users-service';
 import DashBoard from '../DashBoard/DashBoard';
-import FitnessGoalPage from '../fitnessGoalPage/fitnessGoalPage';
+import GoalPage from '../GoalPage/GoalPage';
 
 export default function App() {
 
@@ -24,7 +24,7 @@ export default function App() {
           <NavBar user={user} updateUser={updateUser}/>
           <Routes>
             <Route path="/goals" element={<DashBoard />} />
-            <Route path="/goals/new" element={<FitnessGoalPage />} />
+            <Route path="/goals/new" element={<GoalPage />} />
           </Routes>
         </>
         :
