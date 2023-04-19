@@ -1,26 +1,44 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 
-export default function Dashboard({ goalsList }) {
-  // create state to track completion percentage for each goal
-  const [completionPercentage, setCompletionPercentage] = useState([]);
+function Dashboard() {
+  const [goals, setGoals] = useState([]);
+  const [numCompleted, setNumCompleted] = useState(0);
+  const [numRemaining, setNumRemaining] = useState(0);
+  const [avgCompletion, setAvgCompletion] = useState(0);
 
-  // function to track completion percentage for a goal
-  function trackCompletion(index) {
-    // update the completion percentage for the goal at the given index
-    const newCompletionPercentage = [...completionPercentage];
-    newCompletionPercentage[index] = 100;
-    setCompletionPercentage(newCompletionPercentage);
-  }
+  useEffect(() => {
+    fetch('/api/goals')
+      .then(response => response.json())
+      .then(data => {
+        setGoals(data);
+        setNumCompleted(data.filter(goal => goal.completed).length);
+        setNumRemaining(data.filter(goal => !goal.completed).length);
+        setAvgCompletion(Math.round(data.reduce((total, goal) => total + goal.completionPercentage, 0) / data.length));
+      })
+      .catch(error => console.log(error));
+  }, []);
 
   return (
     <div>
-      <h1>Welcome to Dashboard</h1>
-      {options && options.map((option, index) => (
-        <div key={index}>
-          <h2>{option.title}</h2>
-          <p>{option.description}</p>
-        </div>
-      ))}
+      <h2>Goals Progress</h2>
+      <p>Number of completed goals: {numCompleted}</p>
+      <p>Number of remaining goals: {numRemaining}</p>
+      <p>Average completion percentage: {avgCompletion}%</p>
+      <h2>Upcoming Goals</h2>
+      <ul>
+        {goals.filter(goal => !goal.completed).map(goal => (
+          <li key={goal._id}>
+            <p>{goal.title}</p>
+            <p>{goal.dueDate}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
+
+export default Dashboard;
+
+
+
+
