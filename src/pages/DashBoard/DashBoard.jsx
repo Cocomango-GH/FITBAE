@@ -34,15 +34,6 @@ function Dashboard() {
       <p>Number of completed goals: {goalData.numCompleted}</p>
       <p>Number of remaining goals: {goalData.numRemaining}</p>
       <p>Average completion percentage: {goalData.avgCompletion}%</p>
-      <h2>Upcoming Goals</h2>
-      <ul>
-        {goalData.goals.filter(goal => !goal.completed).map(goal => (
-          <li key={goal._id}>
-            <p>{goal.title}</p>
-            <p>{goal.dueDate}</p>
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }

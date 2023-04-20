@@ -15,6 +15,8 @@ export default function NavBar({user, updateUser}) {
         <Link to="/goals">Goals</Link>
         &nbsp; | &nbsp;
         <Link to="/goals/new">Add Goal</Link>
+        &nbsp; | &nbsp;
+        <Link to='/goallist'> Goal List </Link>
         <h2>Welcome FitBae, {user.name}!</h2>
         <Link to='' onClick={handleLogOut}>Log Out</Link>
       </nav>

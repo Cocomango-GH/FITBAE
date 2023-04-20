@@ -1,4 +1,4 @@
-import { Button } from 'react-bootstrap';
+// import { Button } from 'react-bootstrap';
 import { useState } from 'react'
 import './App.css'
 import AuthPage from '../AuthPage/AuthPage'
@@ -7,7 +7,7 @@ import NavBar from '../../Components/NavBar/NavBar';
 import { getUser } from '../../utilities/users-service';
 import DashBoard from '../DashBoard/DashBoard';
 import GoalPage from '../GoalPage/GoalPage';
-// import GoalList from '../GoalList/GoalList';
+import GoalList from '../GoalList/GoalList';
 
 
 export default function App() {
@@ -25,9 +25,9 @@ export default function App() {
         <>
           <NavBar user={user} updateUser={updateUser}/>
           <Routes>
-            <button><Route path="/goals" element={<DashBoard />} /></button>
+            <Route path="/goals" element={<DashBoard />} />
             <Route path="/goals/new" element={<GoalPage />} />
-            {/* <Route path="/Goallist" element={<GoalList />} /> */}
+            <Route path="/goallist" element={<GoalList />} />
           </Routes>
         </>
         :

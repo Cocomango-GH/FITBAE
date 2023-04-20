@@ -1,4 +1,4 @@
-import React, {useEffect ,useState } from 'react'
+import React, { useState } from 'react'
 import * as goalApi from '../../utilities/goal-api'
 
 export default function GoalPage() {
@@ -22,14 +22,6 @@ export default function GoalPage() {
 
 
 // //fetch here useeffect  newly added fetching goal data 
-// useEffect(() => {
-//   async function goal() {
-//     const response = await fetch("/api/goal");
-//     const goalData = await response.json();
-//     setGoal(goalData);
-//   }
-//    goal();
-// }, []);
 
   return (
     <form onSubmit={handleNewGoal}>

@@ -13,8 +13,8 @@ export function createGoal(goalData){
   }
   
 // newly added 
-export function showGoal(goalData) {
-    return sendRequest(BASE_URL, 'GET', goalData)
+export function getAll() {
+    return sendRequest(BASE_URL)
 }
 
 // newly added 
@@ -25,6 +25,7 @@ export function updateGoal(goalData) {
 export function deleteGoal(goalData) {
   return sendRequest(`${BASE_URL}/${id}`, 'DELETE', goalData)
 }
+
 
 // export function getById(id) {
 //   return sendRequest(`${BASE_URL}/${id}`);
