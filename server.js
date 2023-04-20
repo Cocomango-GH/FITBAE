@@ -5,8 +5,7 @@ const logger = require('morgan');
 require('dotenv').config();
 require('./config/database');
 const app = express();
-const exerciseRouter = require('./routes/api/exercise');
-const usersRouter = require('./routes/api/users');
+
 
 
 //middleware
@@ -17,8 +16,7 @@ app.use(require('../fitbae/config/checkTokens'));
 
 //routes
 app.use('/api/users', require('./routes/api/users'));
-app.use('/users', usersRouter);
-app.use('goals', goalRouter);
+app.use('/api/goal', require('./routes/api/goals'));
 //catch all
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));

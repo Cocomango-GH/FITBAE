@@ -1,8 +1,9 @@
 const Goal = require('../../models/goals');
+// const { createGoal } = require('../../src/utilities/goal-api');
 
 module.exports = {
   show,
-//   index,
+  index,
   create,
   update,
   delete: deleteGoal
@@ -13,15 +14,15 @@ async function show(req, res) {
   res.json(goals);
 }
 
-// async function index(req, res) {
-//   const goal = await Goal.find({});
-//   res.json(goal);
-// }
+async function index(req, res) {
+  const goal = await Goal.find({});
+  res.json(goal);
+}
 
 async function create(req, res) {
-  const goals = new Goal(req.body);
-  await goals.save();
-  res.json(goals);
+  const goal = new Goal(req.body);
+  await goal.save();
+  res.json(goal);
 }
 
 async function update(req, res) {
@@ -30,6 +31,6 @@ async function update(req, res) {
 }
 
 async function deleteGoal(req, res) {
-  const goals = await Goal.findByIdAndRemove(req.params.id);
-  res.json(goals);
+  const goal = await Goal.findByIdAndRemove(req.params.id);
+  res.json(goal);
 }

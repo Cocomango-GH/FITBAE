@@ -7,6 +7,8 @@ import NavBar from '../../Components/NavBar/NavBar';
 import { getUser } from '../../utilities/users-service';
 import DashBoard from '../DashBoard/DashBoard';
 import GoalPage from '../GoalPage/GoalPage';
+// import GoalList from '../GoalList/GoalList';
+
 
 export default function App() {
 
@@ -25,6 +27,7 @@ export default function App() {
           <Routes>
             <Route path="/goals" element={<DashBoard />} />
             <Route path="/goals/new" element={<GoalPage />} />
+            {/* <Route path="/Goallist" element={<GoalList />} /> */}
           </Routes>
         </>
         :
