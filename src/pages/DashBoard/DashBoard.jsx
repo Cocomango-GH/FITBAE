@@ -19,7 +19,7 @@ function Dashboard() {
           throw new Error('Network response was not ok');
         }
       })
-      .then(goals => {
+    .then(goals => {
         const numCompleted = goals.filter(goal => goal.completed).length;
         const numRemaining = goals.filter(goal => !goal.completed).length;
         const avgCompletion = Math.round(goals.reduce((total, goal) => total + goal.completionPercentage, 0) / goals.length);
@@ -29,7 +29,7 @@ function Dashboard() {
   }, []);
 
   return (
-    <div>
+    <div className=''>
       <h2>Goals Progress</h2>
       <p>Number of completed goals: {goalData.numCompleted}</p>
       <p>Number of remaining goals: {goalData.numRemaining}</p>

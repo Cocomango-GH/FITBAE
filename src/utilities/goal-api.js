@@ -23,5 +23,9 @@ export function updateGoal(goalData) {
 }
 
 export function deleteGoal(goalData) {
-  return sendRequest(BASE_URL, 'DELETE', goalData)
+  return sendRequest(`${BASE_URL}/${id}`, 'DELETE', goalData)
 }
+
+// export function getById(id) {
+//   return sendRequest(`${BASE_URL}/${id}`);
+// }
