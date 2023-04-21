@@ -10,11 +10,8 @@
 ###Live Link 
 
 
-App images dashbord , login page , goals page , add goal page 
-<img src="">
-<img src="">
-<img src="">
-<img src="">
+
+
 
 ***technologies used***
 
