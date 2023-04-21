@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as goalAPI from '../../utilities/goal-api'
-
+import './EditPage.css'
 
 export default function editGoal() {
     const [edit, setEditGoal] = useState({
@@ -52,6 +52,7 @@ export default function editGoal() {
 
 
     return (
+      <main className="EditPage">
         <form onSubmit={editGoalSubmit}>
       <h1>Edit Fitness Goals</h1>
       <label>
@@ -92,6 +93,7 @@ export default function editGoal() {
       </label>
       <button type='submit'>Update </button>
     </form>
+    </main>
   );
 
 }

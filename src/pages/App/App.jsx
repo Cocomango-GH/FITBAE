@@ -13,7 +13,7 @@ import EditPage from '../EditPage/EditPage';
 export default function App() {
 //
 //set to true right now just to test set back to user 
-  const [user, setUser] = useState(true)
+  const [user, setUser] = useState(getUser())
 
   function updateUser(userState){
     setUser(userState)

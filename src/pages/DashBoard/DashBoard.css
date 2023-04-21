@@ -1,7 +1,14 @@
 * {
-    color: brown;
+    color: black;
+  
 }
 
 div {
-        background-color: blue;
+    background-color: greenyellow;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content: center;
+   
 }
+

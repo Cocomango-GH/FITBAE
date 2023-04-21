@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as goalApi from '../../utilities/goal-api' 
-
+import './DashBoard.css';
 
 function Dashboard() {
   const [goalData, setGoalData] = useState({
