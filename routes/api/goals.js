@@ -17,7 +17,7 @@ router.post('/', goalCtrl.create);
 router.put('/:id', goalCtrl.update);
 
 // DELETE /api/goal/:id newly added 
-router.delete('/:id', goalCtrl.delete);
+router.delete('/', goalCtrl.delete);
 
 
 

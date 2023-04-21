@@ -31,6 +31,7 @@ async function update(req, res) {
 }
 
 async function deleteGoal(req, res) {
-  const goal = await Goal.findByIdAndRemove(req.params.id);
+  const goal = await Goal.findByIdAndRemove(req.body.id);
   res.json(goal);
+  console.log(req.body)
 }

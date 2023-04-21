@@ -22,8 +22,8 @@ export function updateGoal(goalData) {
   return sendRequest(BASE_URL, 'PUT', goalData)
 }
 
-export function deleteGoal(goalData) {
-  return sendRequest(`${BASE_URL}/${id}`, 'DELETE', goalData)
+export function deleteGoal(id) {
+  return sendRequest(BASE_URL, 'DELETE', id)
 }
 
 
