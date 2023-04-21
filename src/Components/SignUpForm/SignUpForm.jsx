@@ -1,9 +1,7 @@
-import { signUp } from '../../utilities/users-service';
 import { Component } from 'react';
+import { signUp } from '../../utilities/users-service';
 
 export default class SignUpForm extends Component {
-
-  // state is always an object with a property for each "piece" of state
   state = {
     name: '',
     email: '',
@@ -15,23 +13,29 @@ export default class SignUpForm extends Component {
   handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-      // We don't want to send the 'error' or 'confirm' property,
-      //  so let's make a copy of the state object, then delete them
-      const formData = {...this.state}
-      delete formData.error;
+      const formData = { ...this.state };
       delete formData.confirm;
-      const user = await signUp(formData)
-      this.props.setUser(user)
+      delete formData.error;
+      // The promise returned by the signUp service method
+      // will resolve to the user object included in the
+      // payload of the JSON Web Token (JWT)
+      const user = await signUp(formData);
+      // Update user state with user
+      this.props.setUser(user);
     } catch {
-      this.setState({ error: 'Sign Up Failed - Try Again'})
+      // Invalid signup
+      this.setState({
+        error: 'Sign Up Failed - Try Again'
+      });
     }
   }
 
   handleChange = (evt) => {
-    this.setState({ [evt.target.name]: evt.target.value, error: '' })
+    this.setState({
+      [evt.target.name]: evt.target.value,
+      error: ''
+    });
   }
-
-
 
   render() {
     const disable = this.state.password !== this.state.confirm;
@@ -54,6 +58,4 @@ export default class SignUpForm extends Component {
       </div>
     );
   }
-
 }
-

@@ -25,9 +25,25 @@ export default function GoalList() {
     }
     function handleUpdate(id) {
 
-        goalAPI.updateGoal(goals[id])
+        goalAPI.updateGoal(goals[id]);
+        setEdit
         
     }
+
+    // function handleUpdate(id, updatedGoal) {
+    //     const updatedGoals = goals.map(goal => {
+    //         if (goal._id === id) {
+    //             return updatedGoal;
+    //         } else {
+    //             return goal;
+    //         }
+    //     });
+    //     setGoals(updatedGoals);
+    
+    //     goalAPI.updateGoal(updatedGoal);
+    // }
+    
+
     return (
         <>
         <h1>Goals</h1>
@@ -38,7 +54,8 @@ export default function GoalList() {
               <p>{goal.startDate}</p>
               <p>{goal.endDate}</p>
               <button onClick={() => handleDelete(goal._id)}>delete</button>
-              {/* <input name='goalName' value={goal.goal} onc */}
+              {/* <button onClick={() => handleUpdate(goal._id, { ...goal, goalName: 'New Goal Name' })}>update</button> */}
+
               <button onClick={() => handleUpdate(goal._id)}>update</button>
             </li>
           ))}
