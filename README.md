@@ -35,7 +35,25 @@ App images dashbord , login page , goals page , add goal page
 
 
 ## :trophy: code behide Fitbae 
-``
+
+    useEffect( () =>{
+        async function getGoal() {
+        console.log(id)
+        try{
+        const goalData = await goalAPI.getGoal({goalId: id});
+        console.log(goalData)
+        setEditGoal(goalData)
+        } catch (err) {
+        console.error(err)
+        }
+        }
+        getGoal();
+
+    },[id]); 
+
+
+    I it was a complicated task but this code is what made fitbae today if thnaks to my wonderful peers. 
+    ```
 
 
 
