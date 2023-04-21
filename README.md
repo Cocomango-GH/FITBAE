@@ -10,7 +10,7 @@
 ###Live Link 
 
 
-App images dashbord , login page , goals page , add goal page 
+App images login ,page  ,goals page , add goal page 
 
 ![FF6C9F93-4EBA-4C32-8DBA-E509204EDC0A_1_105_c](https://user-images.githubusercontent.com/111953271/233684006-64acf025-ee42-40a8-baad-653a4a6afa6c.jpeg)
 
