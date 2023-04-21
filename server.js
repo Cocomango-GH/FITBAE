@@ -16,7 +16,7 @@ app.use(require('../fitbae/config/checkTokens'));
 
 //routes
 app.use('/api/users', require('./routes/api/users'));
-app.use('/api/goal', require('./routes/api/goals'));
+app.use('/api/goals', require('./routes/api/goals'));
 //catch all
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));

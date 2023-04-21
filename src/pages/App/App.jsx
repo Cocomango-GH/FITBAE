@@ -8,11 +8,12 @@ import { getUser } from '../../utilities/users-service';
 import DashBoard from '../DashBoard/DashBoard';
 import GoalPage from '../GoalPage/GoalPage';
 import GoalList from '../GoalList/GoalList';
-
+import EditPage from '../EditPage/EditPage';
 
 export default function App() {
-
-  const [user, setUser] = useState(getUser())
+//
+//set to true right now just to test set back to user 
+  const [user, setUser] = useState(true)
 
   function updateUser(userState){
     setUser(userState)
@@ -28,6 +29,7 @@ export default function App() {
             <Route path="/goals" element={<DashBoard />} />
             <Route path="/goals/new" element={<GoalPage />} />
             <Route path="/goallist" element={<GoalList />} />
+            <Route path="/goals/:id/edit" element={<EditPage />} />
           </Routes>
         </>
         :

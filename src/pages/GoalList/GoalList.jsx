@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import * as goalAPI from '../../utilities/goal-api'
-// import { set } from "mongoose";
-
+import { Link } from "react-router-dom";
 
 export default function GoalList() {
     const [goals, setGoals] = useState([])
 
-    // const [edit, setEdit] = useState([])
+  
 
     useEffect(() =>  {
         async function getGoals() {
@@ -23,26 +22,7 @@ export default function GoalList() {
         goalAPI.deleteGoal(goalid)
 
     }
-    function handleUpdate(id) {
 
-        goalAPI.updateGoal(goals[id]);
-        setEdit
-        
-    }
-
-    // function handleUpdate(id, updatedGoal) {
-    //     const updatedGoals = goals.map(goal => {
-    //         if (goal._id === id) {
-    //             return updatedGoal;
-    //         } else {
-    //             return goal;
-    //         }
-    //     });
-    //     setGoals(updatedGoals);
-    
-    //     goalAPI.updateGoal(updatedGoal);
-    // }
-    
 
     return (
         <>
@@ -55,8 +35,9 @@ export default function GoalList() {
               <p>{goal.endDate}</p>
               <button onClick={() => handleDelete(goal._id)}>delete</button>
               {/* <button onClick={() => handleUpdate(goal._id, { ...goal, goalName: 'New Goal Name' })}>update</button> */}
-
-              <button onClick={() => handleUpdate(goal._id)}>update</button>
+                <Link to={`/goals/${goal._id}/edit`}> 
+              <button  >update</button>
+              </Link>
             </li>
           ))}
         </ul>

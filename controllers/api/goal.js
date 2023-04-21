@@ -10,8 +10,12 @@ module.exports = {
 }
 
 async function show(req, res) {
-  const goals = await Goal.findById(req.params.id);
-  res.json(goals);
+  try {
+    const goal = await Goal.findById(req.params.id)
+    res.json(goal)
+  } catch (err) { 
+    res.status(500).json(err)
+  }
 }
 
 async function index(req, res) {
@@ -26,7 +30,9 @@ async function create(req, res) {
 }
 
 async function update(req, res) {
-  const goal = await Goal.findByIdAndUpdate(req.params.id, req.body, { new: true });
+  const goal = await Goal.findByIdAndUpdate( req.params.id, req.body, { new: true });
+  console.log(req.params.id)
+  // await goal.save()
   res.json(goal);
 }
 
@@ -34,4 +40,13 @@ async function deleteGoal(req, res) {
   const goal = await Goal.findByIdAndRemove(req.body.id);
   res.json(goal);
   console.log(req.body)
+}
+
+async function show(req, res) {
+  try {
+    const goal = await Goal.findById(req.params.id)
+    res.json(goal)
+  } catch (err) { 
+    res.status(500).json(err)
+  }
 }

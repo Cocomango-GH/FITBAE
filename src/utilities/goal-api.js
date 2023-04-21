@@ -1,6 +1,6 @@
 import sendRequest from "./send-request";
 
-const BASE_URL = '/api/goal'
+const BASE_URL = '/api/goals'
 
 
 
@@ -18,8 +18,8 @@ export function getAll() {
 }
 
 // newly added 
-export function updateGoal(goalData) {
-  return sendRequest(BASE_URL, 'PUT', goalData)
+export function updateGoal(edit) {
+  return sendRequest(`${BASE_URL}/${edit._id}`, 'PUT', edit)
 }
 
 export function deleteGoal(id) {
@@ -27,6 +27,8 @@ export function deleteGoal(id) {
 }
 
 
-// export function getById(id) {
-//   return sendRequest(`${BASE_URL}/${id}`);
-// }
+export function getGoal(id) {
+  console.log(id)
+  return sendRequest(`${BASE_URL}/${id.goalId}`);
+  
+}
