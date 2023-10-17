@@ -7,7 +7,7 @@
     
 :muscle: FitBae is a fitness tracking app designed to help you monitor and improve your overall health and fitness levels. The app offers a range of features and tools that make it easy to set goals, track progress, and stay motivated on your fitness journey.Fitbae is a Full-Stack React Web Application that utilizes Node.js, Express.js, React, MongoDB, Mongoose, and JavaScript. :muscle:
 
-### : [Live-Link](https://fitbae.herokuapp.com)
+### [Live-Link](https://fitbae.herokuapp.com)
 
 
 App  dashbord
